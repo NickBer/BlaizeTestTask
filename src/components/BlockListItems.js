@@ -13,11 +13,37 @@ BlockListItems.propTypes = {
   onClick: Function
 };
 function blockToElement(block, onClick) {
+  let t = new Date();
+  t.setTime(block.timestamp * 1000);
   return (
     <li key={block.number} className="list-group-item list-group-item-action">
-      <p>{block.number}:</p>
-      <p>hash:{block.hash}</p>
-      <p> parent hash:{block.parentHash}</p>
+      <p>
+        Block number: <span className="text-muted">{block.number}</span>
+      </p>
+      <p>
+        Hash: <span className="text-muted">{block.hash}</span>
+      </p>
+      <p>
+        Parent hash: <span className="text-muted">{block.parentHash}</span>
+      </p>
+      <p>
+        Number of transactions:{" "}
+        <span className="text-muted">{block.transactions.length}</span>
+      </p>
+      <p>
+        Gas used: <span className="text-muted">{block.gasUsed}</span>
+      </p>
+      <p>
+        Time:{" "}
+        <span className="text-muted">
+          {t.toLocaleDateString()}{" "}
+          {t.toLocaleTimeString("en-US", { hour12: false })}
+        </span>
+      </p>
+      <p>
+        Size:{" "}
+        <span className="text-muted">{Math.round(block.size / 1024)}kb</span>
+      </p>
       <button
         type="button"
         className="close"
