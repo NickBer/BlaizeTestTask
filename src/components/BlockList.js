@@ -72,5 +72,3 @@ class BlockList extends React.Component {
 }
 
 export default BlockList;
-
-// "Eth.providers.givenProvider" will be set if in an Ethereum supported browser.
